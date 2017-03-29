@@ -25,6 +25,14 @@ export class AppComponent {
     }
   }
 
+  changeKeg(keg, name, brand, price, strength, type) {
+    keg.name = name;
+    keg.price = price;
+    keg.strength = strength;
+    keg.type = type;
+  }
+
+
   priceColor(keg) {
     if (keg.price <= 3) {
       return "bg-success";
