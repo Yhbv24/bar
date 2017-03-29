@@ -1,19 +1,11 @@
-.strong {
+li {
+  list-style: none;
+}
+
+.bold {
   color: red;
 }
 
-.weak {
-  color: blue;
-}
-
-.red {
-  background-color: red;
-}
-
-.green {
-  background-color: green;
-}
-
-.blue {
-  background-color: blue;
+.not-bold {
+  color: green;
 }
