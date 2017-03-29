@@ -32,6 +32,18 @@ export class AppComponent {
     keg.type = type;
   }
 
+  sold(keg) {
+    keg.volume -= 1;
+    keg.revenue += keg.price;
+  }
+
+  volumeChecker(keg) {
+    if (keg.volume <= 50) {
+      return "yellow";
+    } else if (keg.volume <= 20) {
+      return "red";
+    }
+  }
 
   priceColor(keg) {
     if (keg.price <= 3) {
@@ -73,6 +85,7 @@ export class AppComponent {
 export class Keg {
   volume: number = 124;
   edit: boolean = false;
+  revenue: number = 0;
 
   constructor(public name: string, public brand: string, public price: number, public strength: number, public type: string) {}
 }
