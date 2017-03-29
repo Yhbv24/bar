@@ -16,6 +16,7 @@ export class AppComponent {
   ];
   user: boolean = false;
   password: string = "bartender1";
+  customer = new Customer();
 
   editKeg(keg) {
     if (keg.edit === false) {
@@ -86,9 +87,23 @@ export class AppComponent {
     var keg = new Keg(name, brand, price, strength, type);
     this.kegs.push(keg);
   }
+
+  buyBeer(customer, keg) {
+    customer.wallet -= keg.price;
+    customer.drunkenness += .5;
+    keg.volume -= 1;
+    keg.revenue += keg.price;
+    if (customer.drunkenness === 3) {
+      alert("You're feeling tipsy. Are you thirsty for more?");
+    } else if (customer.drunkenness === 6.5) {
+      alert("thIs iS fUn! i wAnT anOthEr!");
+    } else if (customer.drunkenness === 8) {
+      alert("You wake up in a foreign land. You don't remember what happened, but it smells of trash. You realize that you're in a dumpster.");
+    } else if (customer.drunkenness === 10) {
+      alert("You're fucked.");
+    }
+  }
 }
-
-
 
 export class Keg {
   volume: number = 124;
@@ -96,4 +111,9 @@ export class Keg {
   revenue: number = 0;
 
   constructor(public name: string, public brand: string, public price: number, public strength: number, public type: string) {}
+}
+
+export class Customer {
+  wallet: number = 200;
+  drunkenness: number = 0;
 }
