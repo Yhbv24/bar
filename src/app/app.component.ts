@@ -5,14 +5,16 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'app works!';
   kegs: Keg[] = [
-  new Keg("Bud Light", "Budweiser", 4, 4, "Lager"),
-  new Keg("pub drought", "Guinness", 5, 4, "Stout"),
-  new Keg("Boch", "Shiner", 6, 4, "Lager"),
-  new Keg("Rpm", "Boneyard", 7, 6, "ipa"),
+    new Keg("Bud Light", "Budweiser", 4, 4, "Lager"),
+    new Keg("pub drought", "Guinness", 5, 4, "Stout"),
+    new Keg("Boch", "Shiner", 6, 4, "Lager"),
+    new Keg("Rpm", "Boneyard", 7, 6, "ipa"),
   ];
+  user: string = "patron";
 
   priceColor(keg) {
     if (keg.price <= 3) {
@@ -30,6 +32,15 @@ export class AppComponent {
     } else {
       return "weak";
     }
+  }
+
+  userChange() {
+    if (this.user === "patron") {
+      this.user = "employee";
+    } else {
+    this.user = "patron";
+    }
+    console.log(this.user);
   }
 }
 
