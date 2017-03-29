@@ -7,8 +7,8 @@
     <span [class]="strength(keg)">{{keg.strength}}%</span>
     {{keg.type}}
     {{keg.volume}} pints
-    <!-- <button id="edit">edit</button> -->
+    <span *ngIf="user"><button>Edit</button></span>
     </li>
-    <button (click)="userChange()">User</button>
+    <br><button (click)="userChange()">User</button>
   </h5>
 </div>

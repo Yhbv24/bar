@@ -14,7 +14,7 @@ export class AppComponent {
     new Keg("Boch", "Shiner", 6, 4, "Lager"),
     new Keg("Rpm", "Boneyard", 7, 6, "ipa"),
   ];
-  user: string = "patron";
+  user: boolean = false;
 
   priceColor(keg) {
     if (keg.price <= 3) {
@@ -35,10 +35,10 @@ export class AppComponent {
   }
 
   userChange() {
-    if (this.user === "patron") {
-      this.user = "employee";
+    if (this.user === false) {
+      this.user = true;
     } else {
-    this.user = "patron";
+    this.user = false;
     }
     console.log(this.user);
   }
