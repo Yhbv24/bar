@@ -25,7 +25,7 @@
             <td><span [class]="strengthColor(keg)">{{keg.strength}}%</span></td>
             <td>
               <span [class]="volumeChecker(keg)">{{keg.volume}}</span>
-              <button class="btn btn-xs" *ngIf="user" (click)="sold(keg)">Sold</button>
+              <button class="btn btn-xs" *ngIf="user" (click)="sold(keg)" (click)="volumeChecker(keg)">Sold</button>
             </td>
             <td *ngIf="user">${{keg.revenue}}.00</td>
             <td>

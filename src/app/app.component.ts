@@ -34,14 +34,22 @@ export class AppComponent {
 
   sold(keg) {
     keg.volume -= 1;
-    keg.revenue += keg.price;
+    keg.revenue += (keg.price - 1);
   }
 
   volumeChecker(keg) {
-    if (keg.volume <= 50) {
-      return "yellow";
+    if (keg.volume === 0) {
+      if(confirm("Would you like to buy a new keg for $50")) {
+        keg.volume += 124;
+        keg.revenue -= 50;
+      } else {
+        var pos = this.kegs.indexOf(keg);
+        this.kegs.splice(pos, 1);
+      }
     } else if (keg.volume <= 20) {
       return "red";
+    } else if (keg.volume <= 50) {
+      return "yellow";
     }
   }
 
