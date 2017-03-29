@@ -1,0 +1,12 @@
+<div class="container">
+  <h5>
+    <li [class]="priceColor(keg)" *ngFor="let keg of kegs">
+    {{keg.name}}
+    {{keg.brand}}
+    ${{keg.price}}.00
+    <span [class]="strength(keg)">{{keg.strength}}%</span>
+    {{keg.type}}
+    {{keg.volume}} pints
+    </li>
+  </h5>
+</div>
