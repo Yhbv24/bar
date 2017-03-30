@@ -10,6 +10,7 @@ import { Customer } from '../customer.model';
 export class CustomerComponent implements OnInit {
   @Input() keg: Keg;
   @Input() customer: Customer;
+  @Input() childUser: boolean;
 
   buyBeer(customer, keg) {
     customer.wallet -= keg.price;

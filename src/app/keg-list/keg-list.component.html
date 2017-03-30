@@ -15,7 +15,7 @@
     <tr [class]="priceColor(keg)">
       <td>
         {{keg.name}}
-        <app-customer [keg]="keg" [customer]="customer"></app-customer>
+        <app-customer [keg]="keg" [customer]="customer" [childUser]="childUser"></app-customer>
       </td>
       <td>{{keg.brand}}</td>
       <td>${{keg.price}}.00</td>
