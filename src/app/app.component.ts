@@ -39,10 +39,4 @@ export class AppComponent {
     }
   }
 
-  // newKeg(name, brand, price, strength, type) {
-  //   var keg = new Keg(name, brand, price, strength, type);
-  //   this.kegs.push(keg);
-  // }
-
-
 }

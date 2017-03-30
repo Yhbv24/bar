@@ -23,18 +23,10 @@
   <div class="row">
     <div class="col-xs-12">
       <br><button (click)="userChange()" class="btn btn-sm">User</button><br><br>
-      <div *ngIf="user">
-        <label for="name">name</label>
-        <input #name>
-        <label for="brand">brand</label>
-        <input #brand>
-        <label for="price">price</label>
-        <input #price>
-        <label for="strength">strength</label>
-        <input #strength>
-        <label for="type">type</label>
-        <input #type>
-        <button type="button" name="button" (click) ="newKeg(name.value, brand.value, price.value, strength.value, type.value)">New Keg</button>
+      <div *ngIf="masterUser">
+
+        <app-new-keg [childKegList]="masterKegList"></app-new-keg>
+
       </div>
     </div>
   </div>
