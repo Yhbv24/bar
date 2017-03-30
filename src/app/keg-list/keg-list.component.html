@@ -1,3 +1,9 @@
+<select (change)="onChange($event.target.value)">
+  <option value="allKegs">All Beer</option>
+  <option value="cheepBeer">Cheep Beer</option>
+  <option value="expensiveBeer" selected="selected">Expensive Beer</option>
+</select>
+
 <table class="table">
   <thead>
     <tr>
@@ -11,7 +17,7 @@
     </tr>
   </thead>
 
-  <tbody *ngFor="let keg of childKegList">
+  <tbody *ngFor="let keg of childKegList | price:filterByPrice">
     <tr [class]="priceColor(keg)">
       <td>
         {{keg.name}}

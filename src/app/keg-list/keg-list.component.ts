@@ -13,6 +13,12 @@ export class KegListComponent implements OnInit {
   @Input() customer: Customer;
   @Output() clickSender = new EventEmitter();
 
+  filterByPrice: string = "beerPrice";
+
+  onChange(optionFromMenu) {
+    this.filterByPrice = optionFromMenu;
+  }
+
   editButtonHasBeenClicked(kegToEdit: Keg) {
     this.clickSender.emit(kegToEdit);
   }
