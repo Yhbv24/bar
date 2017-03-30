@@ -1,0 +1,13 @@
+<form>
+  <label for="name">name</label><br>
+  <input #name>
+  <label for="brand">brand</label><br>
+  <input #brand>
+  <label for="price">price</label><br>
+  <input #price>
+  <label for="strength">strength</label><br>
+  <input #strength>
+  <label for="type">type</label><br>
+  <input #type><br><br>
+  <button type="button" name="button" (click)="changeKeg(childSelectedKeg, name.value, brand.value, price.value, strength.value, type.value)" class="btn btn-xs">Edit Keg</button>
+</form>

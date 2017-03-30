@@ -1,61 +1,15 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <div class="container">
   <div class="jumbotron">
-    <h1>The Bar <span *ngIf="!user">(patron)</span><span *ngIf="user">(employee)</span></h1>
+    <h1>The Bar <span *ngIf="!childUser">(patron)</span><span *ngIf="user">(employee)</span></h1>
   </div>
 
   <div class="row">
     <div class="col-xs-12">
       <h4>Libation Offerings:</h4>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Brewer</th>
-            <th>Price</th>
-            <th>Alcohol Content</th>
-            <th>Pints per Keg</th>
-            <th *ngIf="user">Revenue</th>
-            <th *ngIf="user">Edit</th>
-          </tr>
-        </thead>
+      <app-keg-list [childKegList]="masterKegList" [childUser]="masterUser"  (clickSender)="editKeg($event)"></app-keg-list>
 
-        <tbody *ngFor="let keg of kegs">
-          <tr [class]="priceColor(keg)">
-            <td>
-              {{keg.name}}
-              <button *ngIf="!user" class="btn btn-xs" (click)="buyBeer(customer, keg)">Purchase</button>
-            </td>
-            <td>{{keg.brand}}</td>
-            <td>${{keg.price}}.00</td>
-            <td><span [class]="strengthColor(keg)">{{keg.strength}}%</span></td>
-            <td>
-              <span [class]="volumeChecker(keg)">{{keg.volume}}</span>
-              <button class="btn btn-xs" *ngIf="user" (click)="sold(keg)" (click)="volumeChecker(keg)">Sold</button>
-            </td>
-            <td *ngIf="user">${{keg.revenue}}.00</td>
-            <td>
-              <button class="btn btn-xs" *ngIf="user" (click)="editKeg(keg)">Edit</button>
-            </td>
-            <td *ngIf="keg.edit">
-              <form *ngIf="editKeg">
-                <label for="name">name</label>
-                <input #name>
-                <label for="brand">brand</label>
-                <input #brand>
-                <label for="price">price</label>
-                <input #price>
-                <label for="strength">strength</label>
-                <input #strength>
-                <label for="type">type</label>
-                <input #type>
-                <button type="button" name="button" (click)="changeKeg(keg, name.value, brand.value, price.value, strength.value, type.value)">Edit Keg</button>
-              </form>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 

@@ -1,0 +1,38 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Brewer</th>
+      <th>Price</th>
+      <th>Alcohol Content</th>
+      <th>Pints per Keg</th>
+      <th *ngIf="childUser">Revenue</th>
+      <th *ngIf="childUser">Edit</th>
+    </tr>
+  </thead>
+
+  <tbody *ngFor="let keg of childKegList">
+    <tr [class]="priceColor(keg)">
+      <td>
+        {{keg.name}}
+        <button *ngIf="!childUser" class="btn btn-xs" (click)="buyBeer(customer, keg)">Purchase</button>
+      </td>
+      <td>{{keg.brand}}</td>
+      <td>${{keg.price}}.00</td>
+      <td><span [class]="strengthColor(keg)">{{keg.strength}}%</span></td>
+      <td>
+        <span [class]="volumeChecker(keg)">{{keg.volume}}</span>
+        <button class="btn btn-xs" *ngIf="childUser" (click)="sold(keg)" (click)="volumeChecker(keg)">Sold</button>
+      </td>
+      <td *ngIf="childUser">${{keg.revenue}}.00</td>
+      <td>
+        <button class="btn btn-xs" *ngIf="childUser" (click)="editButtonHasBeenClicked(keg)">Edit</button>
+      </td>
+      <td *ngIf="keg.edit">
+
+        <app-edit-keg *ngIf="childUser" [childSelectedKeg]="keg"></app-edit-keg>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
