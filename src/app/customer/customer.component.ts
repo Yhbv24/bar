@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Keg } from '../keg.model';
 import { Customer } from '../customer.model';
 
@@ -8,6 +8,8 @@ import { Customer } from '../customer.model';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
+  @Input() keg: Keg;
+  @Input() customer: Customer;
 
   buyBeer(customer, keg) {
     customer.wallet -= keg.price;
@@ -19,7 +21,8 @@ export class CustomerComponent implements OnInit {
     } else if (customer.drunkenness === 6.5) {
       alert("thIs iS fUn! i wAnT anOthEr!");
     } else if (customer.drunkenness === 8) {
-      alert("You wake up in a foreign land. You don't remember what happened, but it smells of trash. You realize that you're in a dumpster.");
+      alert("You buy the bar drinks.");
+      customer.wallet = 20;
     } else if (customer.drunkenness === 10) {
       alert("You're fucked.");
     }

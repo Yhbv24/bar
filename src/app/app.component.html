@@ -1,14 +1,14 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <div class="container">
   <div class="jumbotron">
-    <h1>The Bar <span *ngIf="!childUser">(patron)</span><span *ngIf="user">(employee)</span></h1>
+    <h1>The Bar <span *ngIf="!masterUser">(patron)</span><span *ngIf="masterUser">(employee)</span></h1>
   </div>
 
   <div class="row">
     <div class="col-xs-12">
       <h4>Libation Offerings:</h4>
 
-      <app-keg-list [childKegList]="masterKegList" [childUser]="masterUser"  (clickSender)="editKeg($event)"></app-keg-list>
+      <app-keg-list [childKegList]="masterKegList" [childUser]="masterUser"  (clickSender)="editKeg($event)" [customer]="customer"></app-keg-list>
 
     </div>
   </div>
@@ -16,7 +16,7 @@
   <div class="row">
     <div class="col-xs-12" *ngIf="!user">
       <h4>Your wallet: ${{customer.wallet}}.00</h4>
-      <h1>Drunk-O-Meter:{{customer.drunkenness}}</h1>
+      <h1>Drunk-O-Meter: {{customer.drunkenness}}</h1>
     </div>
   </div>
 

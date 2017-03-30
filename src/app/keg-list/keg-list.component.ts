@@ -10,6 +10,7 @@ import { Customer } from '../customer.model';
 export class KegListComponent implements OnInit {
   @Input() childKegList: Keg[];
   @Input() childUser: boolean;
+  @Input() customer: Customer;
   @Output() clickSender = new EventEmitter();
 
   editButtonHasBeenClicked(kegToEdit: Keg) {
